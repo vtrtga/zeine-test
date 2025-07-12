@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import prisma from './prisma/client';
 import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
+
 
 dotenv.config();
 
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/user', userRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/health', async (req, res) => {
   try {
