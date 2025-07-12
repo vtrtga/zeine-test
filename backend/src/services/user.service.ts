@@ -32,8 +32,12 @@ export async function createUserService(data: CreateUserInput) {
       birthDate: data.birthDate ? new Date(data.birthDate) : undefined,
     },
   });
-
-  return user;
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone,
+  };
 }
 
 export async function listUsersService() {
