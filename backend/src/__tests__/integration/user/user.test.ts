@@ -4,6 +4,7 @@ import prisma from '../../../prisma/client';
 
 describe('User routes', () => {
   beforeAll(async () => {
+    await prisma.product.deleteMany();
     await prisma.user.deleteMany();
   });
 

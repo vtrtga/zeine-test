@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import prisma from './prisma/client';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
 
 
 dotenv.config();
@@ -14,7 +15,7 @@ app.use(express.json());
 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/product', productRoutes);
 app.get('/health', async (req, res) => {
   try {
     await prisma.$connect();
