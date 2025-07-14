@@ -27,6 +27,7 @@ function useTexts() {
       STATUS_INACTIVE: "Inativo",
       STATUS_SOLD: "Vendido",
       CANCEL: "Cancelar",
+      PUBLISH: "Publicar",
     },
     USER_REGISTER: {
       TITLE: "Criar Conta",

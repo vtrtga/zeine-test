@@ -48,6 +48,10 @@ export default function ProductForm({ onSubmit, loading }: ProductFormProps) {
         }));
     };
 
+    const onClickPublish = () => {
+        alert("Produto publicado com sucesso!")
+    }
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!values.imageUrl) {
@@ -83,9 +87,12 @@ export default function ProductForm({ onSubmit, loading }: ProductFormProps) {
             <Button type="submit" disabled={loading} loading={loading} className="btn-register">
                 {PRODUCT_REGISTER.SAVE}
             </Button>
-            <ButtonLink href="/" className="btn-link flex items-center">
+            <ButtonLink href="/" className="btn-link flex items-center border-2 border-gray-300 h-10 rounded">
                 {PRODUCT_REGISTER.CANCEL}
             </ButtonLink>
+            <Button type="button" disabled={loading} onClick={onClickPublish} loading={loading} className="bg-green-600 text-white">
+                {PRODUCT_REGISTER.PUBLISH}
+            </Button>
         </form>
     );
 }

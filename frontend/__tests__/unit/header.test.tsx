@@ -47,7 +47,7 @@ describe("Header", () => {
     render(<Header />);
 
     expect(await screen.findByText("Produtos")).toBeInTheDocument();
-    expect(screen.getByText("Cadastrar Produto")).toBeInTheDocument();
+    expect(screen.getByText("Novo produto")).toBeInTheDocument();
     expect(screen.getByText("Sair")).toBeInTheDocument();
     expect(screen.getByText("Vitor")).toBeInTheDocument();
   });
