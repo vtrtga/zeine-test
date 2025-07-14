@@ -8,7 +8,6 @@ npm-debug.log*
 # Prisma
 /prisma/dev.db
 /prisma/*.sqlite
-/prisma/migrations/
 
 # Others
 .DS_Store
