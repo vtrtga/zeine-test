@@ -1,0 +1,10 @@
+.btn-link-product-register {
+    background-color: inherit;
+    color: #000000;
+    border-inline: 1px #000000 solid;
+    padding: 4px 8px;
+}
+
+.btn-link-product-register:hover {
+    opacity: 0.5;
+}

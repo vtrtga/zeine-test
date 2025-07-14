@@ -1,10 +1,20 @@
-import { ROUTE } from "@/api/const/routes-url";
+'use client'
+import { ROUTE } from "@/app/routes/routes-url";
 import ButtonLink from "@/components/button-link/button-link";
 import useTexts from "@/hooks/useTexts";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const { HOME } = useTexts();
+  const navigate = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate.push(ROUTE.PRODUCT);
+    }
+  }, [navigate]);
 
   return (
     <div className="flex flex-col items-center justify-center px-4 bg-zeine text-zeine">

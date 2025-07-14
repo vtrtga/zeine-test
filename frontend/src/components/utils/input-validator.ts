@@ -1,6 +1,8 @@
 import { z } from 'zod';
 
-const customSchemas = {
+export function validateField(type: string, value: string, path?: string) {
+  const passwordText = path === '/user-register' ? 'A senha deve ter no mínimo 6 caracteres.' : 'Digite a senha.';
+  const customSchemas = {
   email: z
     .string()
     .nonempty('O e-mail é obrigatório.')
@@ -19,10 +21,8 @@ const customSchemas = {
   password: z
     .string()
     .nonempty('A senha é obrigatória.')
-    .min(6, 'A senha deve ter no mínimo 6 caracteres.'),
+    .min(6, passwordText),
 };
-
-export function validateField(type: keyof typeof customSchemas, value: string) {
-  const result = customSchemas[type].safeParse(value);
+  const result = customSchemas[type as keyof typeof customSchemas].safeParse(value);
   return result.success ? null : result.error.issues[0].message;
 }

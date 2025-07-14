@@ -4,7 +4,7 @@ import Input from "@/components/input/input";
 import Button from "@/components/button/button";
 import ButtonLink from "../button-link/button-link";
 import useTexts from "@/hooks/useTexts";
-import { ROUTE } from "@/api/const/routes-url";
+import { ROUTE } from "@/app/routes/routes-url";
 
 export interface LoginFormValues {
   email: string;
@@ -36,7 +36,7 @@ export default function LoginForm({ onSubmit, loading }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-md p-4  border-2 border-gray-300 rounded-lg shadow-md bg-white">
+    <form onSubmit={handleSubmit} data-testid="login-form" className="flex flex-col gap-6 w-full max-w-md p-4  border-2 border-gray-300 rounded-lg shadow-md bg-white">
       <Input
         type="email"
         name="email"
@@ -51,7 +51,7 @@ export default function LoginForm({ onSubmit, loading }: Props) {
         value={values.password}
         onChange={handleChange}
       />
-      <Button type="submit" disabled={loading} loading={true} className="btn-login">
+      <Button type="submit" disabled={loading} loading={loading} className="btn-login">
         {LOGIN.ENTER}
       </Button>
       <ButtonLink className="btn-register-login" href={ROUTE.REGISTER}>

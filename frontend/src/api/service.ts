@@ -1,4 +1,4 @@
-import { LoginRequest, LoginResponse, ProductFormValues, User, UserFormValues } from "@/types";
+import { LoginRequest, LoginResponse, Product, ProductFormValues, User, UserFormValues } from "@/types";
 import api from "./api";
 import { ENDPOINT } from "./const/api-endpoints";
 const withAuth = (token: string) => ({
@@ -12,8 +12,8 @@ export const login = async (data: LoginRequest): Promise<LoginResponse> => {
   return res.data;
 };
 
-export const getProducts = async (token: string): Promise<ProductFormValues[]> => {
-  const res = await api.get(ENDPOINT.PRODUCT, withAuth(token));
+export const getProducts = async (): Promise<Product[]> => {
+  const res = await api.get(ENDPOINT.PRODUCT);
   return res.data;
 };
 
@@ -35,3 +35,7 @@ export const registerUser = async (data: Omit<UserFormValues, "confirmPassword">
   const response = await api.post(ENDPOINT.USER, data);
   return response.data;
 };
+
+export const deleteProduct = async (id: string, token: string): Promise<void> => {
+  await api.delete(`${ENDPOINT.PRODUCT}/${id}`, withAuth(token));
+}

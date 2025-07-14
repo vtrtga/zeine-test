@@ -18,9 +18,7 @@ function Button({
             {...props}
         >
             {loading ? (
-                <div>
-                    <span className="loader h-12 w-12"></span>
-                </div>
+                    <span>Carregando...</span>
             ) : children}
         </button>
     );

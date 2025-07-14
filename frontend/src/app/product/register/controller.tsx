@@ -18,14 +18,12 @@ function ProductRegisterController() {
       setToken(storedToken);
     }
   }, [router]);
-
+  
   const handleRegister = async (values: ProductFormValues) => {
     if (!token) return;
-
     setLoading(true);
     try {
       await createProduct({ ...values }, token);
-      router.push("/products");
     } catch (err) {
       console.error("Erro ao registrar produto:", err);
       alert("Erro ao registrar produto.");

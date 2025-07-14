@@ -14,7 +14,11 @@ export interface LoginResponse {
 
 export interface Product {
   id: string;
-  name: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  category: string;
+  status: "ativo" | "inativo" | "vendido";
   price: number;
   stock: number;
 }
@@ -38,6 +42,10 @@ export interface ProductFormValues {
     imageUrl: string;
     category: string;
     status: "ativo" | "inativo" | "vendido";
+}
+
+export interface Product extends ProductFormValues {
+  id: string;
 }
 
 export interface UserFormValues {

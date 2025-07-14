@@ -64,3 +64,15 @@ button {
   color: var(--color-accent);
   height: 2rem;
 }
+
+.btn-filter {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-filter:hover {
+  opacity: 0.85;
+}

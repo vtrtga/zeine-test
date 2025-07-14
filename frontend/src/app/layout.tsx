@@ -4,6 +4,7 @@ import Header from "@/components/header/header";
 
 import { Inter, Playfair_Display } from "next/font/google";
 import { AuthProvider } from "@/context/auth-context";
+import RouteGuard from "./routes/route-guard";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,9 +38,11 @@ export default function RootLayout({
       <body
         className="antialiased font-sans"
       >
-        <Header />
         <AuthProvider>
-          {children}
+          <Header />
+          <RouteGuard>
+            {children}
+          </RouteGuard>
         </AuthProvider>
       </body>
     </html>

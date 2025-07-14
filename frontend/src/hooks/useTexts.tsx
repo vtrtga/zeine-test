@@ -13,10 +13,10 @@ function useTexts() {
       LOADING: "Entrando...",
     },
     PRODUCT_REGISTER: {
-      TITLE: "Registrar Produto",
+      TITLE: "Cadastrar Produto",
       DESCRIPTION: "Preencha os dados do produto para registrá-lo.",
-      REGISTER: "Registrar Produto",
-      LOADING: "Registrando...",
+      SAVE: "Salvar",
+      LOADING: "Salvando...",
       TITLE_PLACEHOLDER: "Título do Produto",
       DESCRIPTION_PLACEHOLDER: "Descrição do Produto",
       PRICE_PLACEHOLDER: "Preço do Produto",
@@ -26,6 +26,7 @@ function useTexts() {
       STATUS_ACTIVE: "Ativo",
       STATUS_INACTIVE: "Inativo",
       STATUS_SOLD: "Vendido",
+      CANCEL: "Cancelar",
     },
     USER_REGISTER: {
       TITLE: "Criar Conta",
@@ -39,6 +40,10 @@ function useTexts() {
       REGISTER: "Registrar",
       LOADING: "Registrando...",
     },
+    HEADER: {
+      LOGOUT: "Sair",
+      LOADING: "Saindo...",
+    }
   };
 
   return texts;

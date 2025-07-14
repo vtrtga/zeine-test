@@ -1,7 +1,7 @@
 export enum ROUTE {
     HOME = '/',
     LOGIN = '/login',
-    PRODUCT = '/products',
+    PRODUCT = '/product',
     PRODUCT_REGISTER = '/product/register',
     REGISTER = '/user-register',
 }

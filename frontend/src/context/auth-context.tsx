@@ -50,10 +50,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     localStorage.setItem("token", token);
     localStorage.setItem("userId", user.id);
+    localStorage.setItem("userName", user.name);
 
     setUser(user);
     setToken(token);
-    router.push("/dashboard"); // redireciona pós-login
+    router.push("/product");
   };
 
   const logout = () => {

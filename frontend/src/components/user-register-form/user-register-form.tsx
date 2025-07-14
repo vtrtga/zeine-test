@@ -76,7 +76,7 @@ export default function UserRegisterForm({ onSubmit, loading, success }: Props) 
         value={values.phone}
         onChange={handleChange}
       />
-      <Button type="submit" disabled={loading} loading={loading} className="btn-register">
+      <Button type="submit" data-testid="register-button" disabled={loading} loading={loading} className="btn-register">
         {USER_REGISTER.REGISTER}
       </Button>
       {success && <p className="text-green-500">Usuário registrado com sucesso!</p>}
