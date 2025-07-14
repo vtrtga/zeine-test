@@ -56,3 +56,9 @@ export interface UserFormValues {
   birthDate?: string;
   phone?: string;
 }
+
+export enum StatusValues {
+  SOLD = "vendido",
+  ACTIVE = "ativo",
+  INACTIVE = "inativo",
+}

@@ -1,13 +1,13 @@
 "use client";
 import ProductList from "@/components/product-list/product-list";
-import { Product } from "@/types";
+import { Product, StatusValues } from "@/types";
 import ProductFilter from "@/components/product-filter/product-filter";
 
 interface ProductViewProps {
   products: Product[];
   loading: boolean;
   onDelete: (id: string) => void;
-  onFilter: (text: string, status: string) => void;
+  onFilter: (text: string, status: StatusValues | null) => void;
 }
 
 export default function ProductView({

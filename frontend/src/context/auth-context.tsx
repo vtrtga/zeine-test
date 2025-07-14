@@ -33,25 +33,26 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     router.push("/");
   };
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
+useEffect(() => {
+  const storedToken = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
 
-
-    if (storedToken && userId) {
-      getUser(userId, storedToken)
-        .then((user) => {
-          setUser(user);
-          setToken(storedToken);
-        })
-        .catch(() => {
-          logout();
-        })
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
-    }
-  }, [logout]);
+  if (storedToken && userId) {
+    getUser(userId, storedToken)
+      .then((user) => {
+        setUser(user);
+        setToken(storedToken);
+      })
+      .catch((error) => {
+        console.error("Erro ao recuperar usuário com token salvo:", error);
+        setUser(null);
+        setToken(null);
+      })
+      .finally(() => setLoading(false));
+  } else {
+    setLoading(false);
+  }
+}, []);
 
   const login = async (email: string, password: string) => {
     const { token, user } = await loginRequest({ email, password });
@@ -61,7 +62,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("userName", user.name);
 
     setUser(user);
-    setToken(token);
+  setToken(token);
     router.push("/product");
   };
 

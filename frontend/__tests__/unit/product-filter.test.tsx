@@ -12,10 +12,10 @@ describe("ProductFilter", () => {
     const button = screen.getByRole("button", { name: /filtrar/i });
 
     fireEvent.change(input, { target: { value: "Guitarra" } });
-    fireEvent.change(select, { target: { value: "Ativo" } });
+    fireEvent.change(select, { target: { value: "ativo" } });
     fireEvent.click(button);
 
-    expect(handleFilter).toHaveBeenCalledWith("Guitarra", "Ativo");
+    expect(handleFilter).toHaveBeenCalledWith("Guitarra", "ativo");
     expect(handleFilter).toHaveBeenCalledTimes(1);
   });
 });

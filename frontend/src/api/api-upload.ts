@@ -11,7 +11,7 @@ const uploadFile = async (file: File): Promise<string> => {
 
         return res.data.data.url as string;
     } catch (err) {
-        console.log(err, 'Falha no upload de arquivo');
+        console.error(err, 'Falha no upload de arquivo');
         throw err;
     }
 }

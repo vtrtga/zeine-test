@@ -15,6 +15,7 @@ export default function ProductCard({
 }: ProductCardProps) {
     return (
         <div className="product-card">
+            <span className={`${product.status}`}>{product.status}</span>
             <div className="product-image-container">
                 <Image
                     src={product.imageUrl}

@@ -1,13 +1,14 @@
 "use client";
+import { StatusValues } from "@/types";
 import { useState } from "react";
 
 interface Props {
-  onFilter: (text: string, status: string) => void;
+  onFilter: (text: string, status: StatusValues | null) => void;
 }
 
 export default function ProductFilter({ onFilter }: Props) {
   const [text, setText] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<StatusValues | null>(null);
 
   const handleFilter = () => {
     onFilter(text, status);
@@ -24,14 +25,17 @@ export default function ProductFilter({ onFilter }: Props) {
       />
 
       <select
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
+        value={status || ""}
+        onChange={(e) => {
+          const value = e.target.value;
+          setStatus(value === "" ? null : (value as StatusValues));
+        }}
         className="border border-gray-300 p-2 rounded w-full sm:w-1/4"
       >
         <option value="">Todos os Status</option>
-        <option value="Ativo">Ativo</option>
-        <option value="Inativo">Inativo</option>
-        <option value="Vendido">Vendido</option>
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+        <option value="vendido">Vendido</option>
       </select>
 
       <button

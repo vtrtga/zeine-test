@@ -81,3 +81,18 @@
 .product-image-container {
     max-height: 200px;
 }
+
+.ativo {
+    color: green;
+    font-weight: bold;
+}
+
+.inativo {
+    color: red;
+    font-weight: bold;
+}
+
+.vendido {
+    color: gray;
+    font-weight: bold;
+}

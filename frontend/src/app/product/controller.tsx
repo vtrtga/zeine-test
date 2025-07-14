@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import ProductView from "./view";
-import { Product } from "@/types";
+import { Product, StatusValues } from "@/types";
 import { deleteProduct, getProducts } from "@/api/service";
 
 function ProductController() {
@@ -31,7 +31,7 @@ function ProductController() {
     }
   };
 
-  const handleFilter = useCallback((text: string, status: string) => {
+  const handleFilter = useCallback((text: string, status: StatusValues | null) => {
     let filtered = allProducts;
 
     if (text) {
