@@ -51,8 +51,8 @@ export default function LoginForm({ onSubmit, loading }: Props) {
         value={values.password}
         onChange={handleChange}
       />
-      <Button type="submit" disabled={loading} className="btn-login">
-        {loading ? LOGIN.LOADING : LOGIN.ENTER}
+      <Button type="submit" disabled={loading} loading={true} className="btn-login">
+        {LOGIN.ENTER}
       </Button>
       <ButtonLink className="btn-register-login" href={ROUTE.REGISTER}>
         {LOGIN.REGISTER}

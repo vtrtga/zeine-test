@@ -5,14 +5,15 @@ import { UserFormValues } from "@/types";
 interface UserRegisterViewProps {
   handleRegister: (values: UserFormValues) => void;
   loading: boolean;
+  success: boolean;
 }
 
-function UserRegisterView({ handleRegister, loading }: UserRegisterViewProps) {
+function UserRegisterView({ handleRegister, loading, success }: UserRegisterViewProps) {
   const { USER_REGISTER } = useTexts();
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8">
       <h1 className="text-3xl font-semibold mb-6">{USER_REGISTER.TITLE}</h1>
-      <UserRegisterForm onSubmit={handleRegister} loading={loading} />
+      <UserRegisterForm onSubmit={handleRegister} loading={loading} success={success} />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { UserFormValues } from "@/types";
 
 function UserRegisterController() {
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const router = useRouter();
 
   const handleRegister = async (values: UserFormValues) => {
@@ -23,6 +24,8 @@ function UserRegisterController() {
         password: values.password,
         birthDate: values.birthDate,
         phone: values.phone,
+      }).then(() => {
+        setSuccess(true);
       });
       router.push("/login");
     } catch (err) {
@@ -33,7 +36,7 @@ function UserRegisterController() {
     }
   };
 
-  return <UserRegisterView handleRegister={handleRegister} loading={loading} />;
+  return <UserRegisterView handleRegister={handleRegister} loading={loading} success={success} />;
 }
 
 export default UserRegisterController;

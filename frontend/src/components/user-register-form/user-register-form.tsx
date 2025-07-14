@@ -7,8 +7,9 @@ import { UserFormValues } from "@/types";
 interface Props {
   onSubmit: (values: UserFormValues) => void;
   loading?: boolean;
+  success?: boolean;
 }
-export default function UserRegisterForm({ onSubmit, loading }: Props) {
+export default function UserRegisterForm({ onSubmit, loading, success }: Props) {
   const { USER_REGISTER } = useTexts();
 
   const [values, setValues] = useState<UserFormValues>({
@@ -75,9 +76,10 @@ export default function UserRegisterForm({ onSubmit, loading }: Props) {
         value={values.phone}
         onChange={handleChange}
       />
-      <Button type="submit" disabled={loading} className="btn-register">
-        {loading ? USER_REGISTER.LOADING : USER_REGISTER.REGISTER}
+      <Button type="submit" disabled={loading} loading={loading} className="btn-register">
+        {USER_REGISTER.REGISTER}
       </Button>
+      {success && <p className="text-green-500">Usuário registrado com sucesso!</p>}
     </form>
   );
 }

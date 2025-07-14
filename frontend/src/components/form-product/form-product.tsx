@@ -50,8 +50,8 @@ export default function ProductForm({ onSubmit, loading }: ProductFormProps) {
                 <option value="vendido">{PRODUCT_REGISTER.STATUS_SOLD}</option>
             </select>
 
-            <Button type="submit" disabled={loading} className="btn-register">
-                {loading ? PRODUCT_REGISTER.LOADING : PRODUCT_REGISTER.REGISTER}
+            <Button type="submit" disabled={loading} loading={loading} className="btn-register">
+                {PRODUCT_REGISTER.REGISTER}
             </Button>
         </form>
     );
