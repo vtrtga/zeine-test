@@ -9,7 +9,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const publicRoutes = [ROUTE.HOME as string, ROUTE.LOGIN as string];
+const publicRoutes = [ROUTE.HOME as string, ROUTE.LOGIN as string, ROUTE.REGISTER as string];
 
 export default function RouteGuard({ children }: Props) {
   const pathname = usePathname();
