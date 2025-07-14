@@ -7,7 +7,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function Button({
     children,
     className = '',
-    color = 'default',
     loading,
     ...props
 }: ButtonProps) {

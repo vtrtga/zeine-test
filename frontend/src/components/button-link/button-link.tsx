@@ -1,7 +1,6 @@
 function ButtonLink({
     children,
     className = '',
-    color = 'default',
     ...props
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
 

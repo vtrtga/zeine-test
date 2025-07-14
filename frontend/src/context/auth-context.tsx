@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getUser, login as loginRequest } from "@/api/service";
 import { useRouter } from "next/navigation";
 
@@ -25,10 +25,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    setUser(null);
+    setToken(null);
+    router.push("/");
+  };
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
+
 
     if (storedToken && userId) {
       getUser(userId, storedToken)
@@ -43,7 +51,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [logout]);
 
   const login = async (email: string, password: string) => {
     const { token, user } = await loginRequest({ email, password });
@@ -55,14 +63,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(user);
     setToken(token);
     router.push("/product");
-  };
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    setUser(null);
-    setToken(null);
-    router.push("/");
   };
 
   return (

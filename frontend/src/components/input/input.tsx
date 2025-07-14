@@ -30,7 +30,7 @@ export default function Input({
 
   const handleBlur = () => {
     if (['email', 'cpf', 'date', 'password'].includes(type)) {
-      const msg = validateField(type as any, value || '', pathname);
+      const msg = validateField(type as InputTypes, value || '', pathname);
       setError(msg);
     } else {
       setError(null);

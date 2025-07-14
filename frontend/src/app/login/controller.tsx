@@ -14,6 +14,7 @@ function LoginController() {
       await login(values.email, values.password);
     } catch (err) {
       alert("Erro ao fazer login.");
+      console.error(err);
     } finally {
       setLoading(false);
     }
